@@ -1,7 +1,9 @@
 package com.abror.deptc
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.net.Uri
@@ -10,6 +12,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class homeActivity : AppCompatActivity() {
 
@@ -21,6 +25,7 @@ class homeActivity : AppCompatActivity() {
     companion object {
         private const val IMAGE_PICK_CODE = 1001
         private const val CAMERA_REQUEST_CODE = 1002
+        private const val CAMERA_PERMISSION_REQUEST_CODE = 1003
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +45,7 @@ class homeActivity : AppCompatActivity() {
         }
 
         btnCamera.setOnClickListener {
-            openCamera()
+            checkCameraPermissionAndOpenCamera()
         }
 
         btnPredict.setOnClickListener {
@@ -60,12 +65,42 @@ class homeActivity : AppCompatActivity() {
         startActivityForResult(intent, IMAGE_PICK_CODE)
     }
 
+    private fun checkCameraPermissionAndOpenCamera() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERMISSION_REQUEST_CODE
+            )
+        } else {
+            openCamera()
+        }
+    }
+
     private fun openCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (intent.resolveActivity(packageManager) != null) {
             startActivityForResult(intent, CAMERA_REQUEST_CODE)
         } else {
             Toast.makeText(this, "Kamera tidak tersedia", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == CAMERA_PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openCamera()
+            } else {
+                Toast.makeText(this, "Izin kamera ditolak", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

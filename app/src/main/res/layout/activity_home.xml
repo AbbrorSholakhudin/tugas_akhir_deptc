@@ -35,14 +35,32 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Pilih Gambar"
+            android:backgroundTint="@color/green"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20dp"
             android:layout_marginTop="16dp"/>
-
+        <Button
+            android:id="@+id/btnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ambil Foto"
+            android:backgroundTint="@color/green"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"/>
         <Button
             android:id="@+id/btnPredict"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Prediksi"
+            android:backgroundTint="@color/green"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20dp"
             android:layout_marginTop="8dp"/>
 
         <TextView
@@ -60,8 +78,8 @@
             android:layout_height="56dp"
             android:layout_gravity="center"
             android:layout_marginTop="480dp"
-            android:backgroundTint="@color/green"
             android:text="Scan Sekarang"
+            android:backgroundTint="@color/green"
             android:textAllCaps="false"
             android:textColor="@color/white1"
             android:textSize="20dp"/>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".uploadActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-88dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="ExtraText">
+
+        <LinearLayout
+            android:layout_width="430dp"
+            android:layout_height="170dp"
+            android:background="@drawable/bg_navbr"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/back2" />
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="430dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:background="@drawable/bg_navbar"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingBottom="10dp">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="60dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:fontFamily="sans-serif-medium"-->
+<!--                            android:layout_marginLeft="135dp"-->
+<!--                            android:paddingLeft="10dp"-->
+<!--                            android:paddingRight="10dp"-->
+<!--                            android:paddingBottom="20dp"-->
+<!--                            android:text="DEPTC"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="35dp"-->
+
+<!--                            />-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:layout_marginLeft="25dp"-->
+<!--                            android:src="@drawable/icon_splash"-->
+
+<!--                            />-->
+
+<!--        </LinearLayout>-->
+
+        <ImageView
+            android:id="@+id/imgUpload"
+            android:layout_width="260dp"
+            android:layout_height="277dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_scan" />
+            <![CDATA[
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            tools:ignore="VectorDrawableCompat" />
+            ]]>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="135dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnUnggah"
+                android:layout_width="195dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="100dp"
+                android:layout_marginLeft="13dp"
+                android:backgroundTint="@color/green"
+                android:text="Unggah Foto"
+                android:textAllCaps="false"
+                android:textColor="@color/white1"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btnTakePict"
+                android:layout_width="195dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="100dp"
+                android:backgroundTint="@color/green"
+                android:text="Ambil Foto"
+                android:textAllCaps="false"
+                android:textColor="@color/white1"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnScan1"
+            android:layout_width="290dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_btn"
+            android:text="Lihat hasil"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

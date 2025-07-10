@@ -10,6 +10,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -20,6 +22,8 @@ class homeActivity : AppCompatActivity() {
     private lateinit var classifier: ImageClassifier
     private lateinit var imageView: ImageView
     private lateinit var resultView: TextView
+    private lateinit var resultContainer: LinearLayout
+    private lateinit var btnCloseResult: Button
     private var selectedBitmap: Bitmap? = null
 
     companion object {
@@ -38,7 +42,14 @@ class homeActivity : AppCompatActivity() {
         val btnCamera = findViewById<Button>(R.id.btnCamera)
         val btnPredict = findViewById<Button>(R.id.btnPredict)
         imageView = findViewById(R.id.containerimageView)
-        resultView = findViewById(R.id.textResult)
+        resultContainer = findViewById(R.id.resultContainer)
+        btnCloseResult = findViewById(R.id.btnCloseResult)
+
+        val diseaseText = findViewById<TextView>(R.id.textDisease)
+        val preventionText = findViewById<TextView>(R.id.textPrevention)
+
+        // Sembunyikan container hasil saat awal
+        resultContainer.visibility = View.GONE
 
         btnSelect.setOnClickListener {
             pickImageFromGallery()
@@ -51,11 +62,22 @@ class homeActivity : AppCompatActivity() {
         btnPredict.setOnClickListener {
             selectedBitmap?.let {
                 val resultIndex = classifier.classify(it)
-                val label = getLabelForClass(resultIndex)
-                resultView.text = "Hasil Prediksi: $label"
+                val (label, prevention) = getLabelAndPrevention(resultIndex)
+
+                diseaseText.text = "Penyakit : $label"
+                preventionText.text = "Pencegahan : $prevention"
+
+                resultContainer.visibility = View.VISIBLE
+                val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+                resultContainer.startAnimation(slideUp)
+
             } ?: run {
-                resultView.text = "Pilih atau ambil gambar terlebih dahulu."
+                Toast.makeText(this, "Pilih atau ambil gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        btnCloseResult.setOnClickListener {
+            resultContainer.visibility = View.GONE
         }
     }
 
@@ -141,14 +163,14 @@ class homeActivity : AppCompatActivity() {
         }
     }
 
-    private fun getLabelForClass(index: Int): String {
+    private fun getLabelAndPrevention(index: Int): Pair<String, String> {
         return when (index) {
-            0 -> "Daun Sehat"
-            1 -> "Daun Melengkung"
-            2 -> "Daun Berbintik Hitam"
-            3 -> "Daun Terkena Hama"
-            4 -> "Daun Menguning Lesu"
-            else -> "Kelas Tidak Diketahui"
+            0 -> "Daun Sehat" to "Tidak ada tindakan yang diperlukan. Tetap pantau dan rawat tanaman secara rutin."
+            1 -> "Daun Melengkung" to "Penyebab umum adalah kekurangan air atau serangan virus. Lakukan penyiraman yang cukup dan cabut daun yang rusak."
+            2 -> "Daun Berbintik Hitam" to "Semprot dengan fungisida berbahan aktif mancozeb atau tembaga setiap 7–10 hari sekali hingga sembuh."
+            3 -> "Daun Terkena Hama" to "Gunakan insektisida sistemik dan semprotkan secara merata di seluruh bagian tanaman, termasuk bagian bawah daun."
+            4 -> "Daun Menguning Lesu" to "Periksa drainase tanah, hindari overwatering, dan berikan pupuk nitrogen sesuai dosis anjuran."
+            else -> "Kelas Tidak Diketahui" to "Gambar tidak dikenali. Silakan coba lagi dengan gambar yang lebih jelas."
         }
     }
 }

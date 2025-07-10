@@ -1,88 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeActivity">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@color/white">
+
         <LinearLayout
-            android:layout_width="430dp"
-            android:layout_height="170dp"
-            android:background="@drawable/bg_navbr"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
-            tools:ignore="MissingConstraints">
+            android:background="@color/white">
+
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_navbar"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <!-- Icon dummy (invisible) -->
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:visibility="invisible"
+                    android:src="@drawable/icon" />
+
+                <!-- Text di tengah -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="DepTC"
+                    android:gravity="center"
+                    android:textSize="54sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <!-- Icon sebenarnya -->
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/icon"
+                    android:contentDescription="DepTC Icon"
+                    android:scaleType="fitCenter" />
+            </LinearLayout>
+
+
+            <!-- IMAGE PREVIEW -->
+            <ImageView
+                android:id="@+id/containerimageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:background="#CCCCCC"
+                android:layout_marginTop="16dp" />
+
+            <!-- PILIH GAMBAR -->
+            <Button
+                android:id="@+id/btnSelectImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Pilih Gambar"
+                android:backgroundTint="@color/green"
+                android:textAllCaps="false"
+                android:textColor="@color/white1"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp" />
+
+            <!-- AMBIL FOTO -->
+            <Button
+                android:id="@+id/btnCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Ambil Foto"
+                android:backgroundTint="@color/green"
+                android:textAllCaps="false"
+                android:textColor="@color/white1"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp" />
+
+            <!-- PREDIKSI -->
+            <Button
+                android:id="@+id/btnPredict"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Prediksi"
+                android:backgroundTint="@color/green"
+                android:textAllCaps="false"
+                android:textColor="@color/white1"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp" />
+            <!-- HASIL PREDIKSI (DETAILED) -->
+            <LinearLayout
+                android:id="@+id/resultContainer"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="24dp"
+                android:background="#D0EDCC"
+                android:backgroundTint="#D0EDCC"
+                android:clipToOutline="true"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textDisease"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Penyakit : -"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textPrevention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Pencegahan : -"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+                <Button
+                    android:id="@+id/btnCloseResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ok"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/green"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+
         </LinearLayout>
-        <ImageView
-            android:id="@+id/containerimageView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            android:background="#CCCCCC" />
-
-        <Button
-            android:id="@+id/btnSelectImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Pilih Gambar"
-            android:backgroundTint="@color/green"
-            android:textAllCaps="false"
-            android:textColor="@color/white1"
-            android:textSize="20dp"
-            android:layout_marginTop="16dp"/>
-        <Button
-            android:id="@+id/btnCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Ambil Foto"
-            android:backgroundTint="@color/green"
-            android:textAllCaps="false"
-            android:textColor="@color/white1"
-            android:textSize="20dp"
-            android:layout_marginTop="8dp"/>
-        <Button
-            android:id="@+id/btnPredict"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Prediksi"
-            android:backgroundTint="@color/green"
-            android:textAllCaps="false"
-            android:textColor="@color/white1"
-            android:textSize="20dp"
-            android:layout_marginTop="8dp"/>
-
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Hasil prediksi akan tampil di sini"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/btnScan"
-            android:layout_width="290dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="480dp"
-            android:text="Scan Sekarang"
-            android:backgroundTint="@color/green"
-            android:textAllCaps="false"
-            android:textColor="@color/white1"
-            android:textSize="20dp"/>
-    </LinearLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

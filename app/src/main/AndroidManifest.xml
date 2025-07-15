@@ -29,11 +29,6 @@
         <!-- Home screen -->
         <activity android:name=".homeActivity" />
 
-        <!-- Home screen -->
-        <activity android:name=".resultActivity" />
-
-        <!-- Home screen -->
-        <activity android:name=".uploadActivity" />
 
     </application>
 

@@ -28,6 +28,8 @@
 
         <!-- Home screen -->
         <activity android:name=".homeActivity" />
+        <activity android:name=".deteksiActivity"/>
+        <activity android:name=".contohgambarActivity"/>
 
 
     </application>

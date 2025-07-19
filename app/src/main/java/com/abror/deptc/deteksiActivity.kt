@@ -79,6 +79,15 @@ class deteksiActivity : AppCompatActivity() {
         btnCloseResult.setOnClickListener {
             resultContainer.visibility = View.GONE
         }
+        // Aktifkan tombol kembali di ActionBar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Deteksi"
+    }
+
+    // Tangani aksi tombol kembali di atas
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed() // atau finish()
+        return true
     }
 
     private fun pickImageFromGallery() {

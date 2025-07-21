@@ -1,262 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECEFF1">
+    tools:context=".contohgambarActivity">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:background="#ECEFF1"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:alignmentMode="alignMargins"
-            android:rowCount="3"
-            android:useDefaultMargins="true">
-
-            <!-- ITEM 1 -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:padding="8dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
-
-                    <ImageView
-                        android:id="@+id/imageHealthy"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/healthy" />
-                    <CheckBox
-                        android:id="@+id/checkboxHealthy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
-                        android:buttonTint="@color/black"
-                        android:padding="8dp" />
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Daun Sehat (Normal)"
-                    android:textAlignment="center"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- ITEM 2 -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:padding="8dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
-
-                    <ImageView
-                        android:id="@+id/imageLeafCurl"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/leaf_curl" />
-
-                    <CheckBox
-                        android:id="@+id/checkboxLeafCurl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
-                        android:buttonTint="@color/black"
-                        android:padding="8dp" />
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Daun Melengkung (Gemini)"
-                    android:textAlignment="center"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- ITEM 3 -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:padding="8dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
-
-                    <ImageView
-                        android:id="@+id/imageLeafSpot"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/leaf_spot" />
-
-                    <CheckBox
-                        android:id="@+id/checkboxLeafSpot"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
-                        android:buttonTint="@color/black"
-                        android:padding="8dp" />
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Daun spot hitam"
-                    android:textAlignment="center"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- ITEM 4 -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:padding="8dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
-
-                    <ImageView
-                        android:id="@+id/imageWhitefly"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/whitefly" />
-
-                    <CheckBox
-                        android:id="@+id/checkboxWhitefly"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
-                        android:buttonTint="@color/black"
-                        android:padding="8dp" />
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Daun witerfly"
-                    android:textAlignment="center"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- ITEM 5 -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:padding="8dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
-
-                    <ImageView
-                        android:id="@+id/imageYellowish"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/yellowish" />
-
-                    <CheckBox
-                        android:id="@+id/checkboxYellowish"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
-                        android:buttonTint="@color/black"
-                        android:padding="8dp" />
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Daun yellowish"
-                    android:textAlignment="center"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </GridLayout>
-
-        <!-- RESULT CONTAINER -->
         <LinearLayout
-            android:id="@+id/resultContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@android:color/white"
-            android:backgroundTint="#D0EDCC"
-            android:visibility="gone"
-            android:layout_marginTop="16dp"
-            android:translationY="1000dp"
-            android:gravity="center">
+            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/textDisease"
+            <GridLayout
+                android:id="@+id/gridLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Penyakit : -"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:rowCount="3"
+                android:useDefaultMargins="true">
 
-            <TextView
-                android:id="@+id/textPrevention"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Pencegahan : -"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <!-- ITEM 1 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-            <Button
-                android:id="@+id/btnCloseResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ok"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@android:color/holo_green_dark"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"/>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp">
+
+                        <ImageView
+                            android:id="@+id/imageHealthy"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/healthy" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxHealthy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|end"
+                            android:buttonTint="@color/black"
+                            android:padding="8dp" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Daun Sehat (Normal)"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- ITEM 2 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp">
+
+                        <ImageView
+                            android:id="@+id/imageLeafCurl"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/leaf_curl" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxLeafCurl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|end"
+                            android:buttonTint="@color/black"
+                            android:padding="8dp" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Daun Melengkung (Gemini)"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- ITEM 3 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp">
+
+                        <ImageView
+                            android:id="@+id/imageLeafSpot"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/leaf_spot" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxLeafSpot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|end"
+                            android:buttonTint="@color/black"
+                            android:padding="8dp" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Daun spot hitam"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- ITEM 4 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp">
+
+                        <ImageView
+                            android:id="@+id/imageWhitefly"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/whitefly" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxWhitefly"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|end"
+                            android:buttonTint="@color/black"
+                            android:padding="8dp" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Daun witerfly"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- ITEM 5 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp">
+
+                        <ImageView
+                            android:id="@+id/imageYellowish"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/yellowish" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxYellowish"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|end"
+                            android:buttonTint="@color/black"
+                            android:padding="8dp" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Daun yellowish"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </GridLayout>
+
+
         </LinearLayout>
 
+    </ScrollView>
+    <!-- HASIL PREDIKSI (DETAILED) -->
+    <LinearLayout
+        android:id="@+id/resultContainer"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="12dp"
+        android:background="#D0EDCC"
+        android:backgroundTint="#D0EDCC"
+        android:clipToOutline="true"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textDisease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Penyakit : -"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textPrevention"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Pencegahan : -"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnCloseResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/green"
+            android:text="Ok"
+            android:textColor="@color/white" />
     </LinearLayout>
-</ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

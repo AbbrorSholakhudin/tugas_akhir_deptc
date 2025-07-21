@@ -21,6 +21,7 @@ class deteksiActivity : AppCompatActivity() {
 
     private lateinit var classifier: ImageClassifier
     private lateinit var imageView: ImageView
+    private lateinit var resultView: TextView
     private lateinit var resultContainer: LinearLayout
     private lateinit var btnCloseResult: Button
     private var selectedBitmap: Bitmap? = null
@@ -66,10 +67,9 @@ class deteksiActivity : AppCompatActivity() {
                 diseaseText.text = "Penyakit : $label"
                 preventionText.text = "Pencegahan : $prevention"
 
-                val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
                 resultContainer.visibility = View.VISIBLE
+                val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
                 resultContainer.startAnimation(slideUp)
-
 
             } ?: run {
                 Toast.makeText(this, "Pilih atau ambil gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
@@ -79,16 +79,15 @@ class deteksiActivity : AppCompatActivity() {
         btnCloseResult.setOnClickListener {
             resultContainer.visibility = View.GONE
         }
-        // Aktifkan tombol kembali di ActionBar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Deteksi"
+        supportActionBar?.title = "Deteksi Penyakit"
     }
 
-    // Tangani aksi tombol kembali di atas
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed() // atau finish()
+        onBackPressed()
         return true
     }
+
 
     private fun pickImageFromGallery() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
@@ -174,13 +173,12 @@ class deteksiActivity : AppCompatActivity() {
 
     private fun getLabelAndPrevention(index: Int): Pair<String, String> {
         return when (index) {
-            0 -> "Daun Sehat (Normal)" to "Tidak ada tindakan yang diperlukan. Tetap pantau dan rawat tanaman secara rutin."
-            1 -> "Daun Melengkung (Ciri infeksi virus Gemini)" to "Penyebab umum adalah virus Gemini atau kekurangan air. Cabut dan musnahkan daun yang terinfeksi, lakukan penyiraman yang cukup."
-            2 -> "Bercak Hitam (Black Spot - *Alternaria alternata*)" to "Semprot dengan fungisida berbahan aktif mancozeb atau tembaga setiap 7–10 hari sekali hingga sembuh. Buang daun yang sangat terinfeksi."
-            3 -> "Serangan Hama (Thrips / Aphid / Kutu Daun)" to "Gunakan insektisida sistemik, semprot secara merata terutama di bawah daun dan pucuk muda. Ulangi penyemprotan sesuai petunjuk insektisida."
-            4 -> "Klorosis (Gejala Awal Infeksi Gemini / Kekurangan Nitrogen)" to "Perbaiki drainase, hindari penyiraman berlebih, dan berikan pupuk nitrogen sesuai dosis. Jika dicurigai virus, cabut tanaman terinfeksi."
-            else -> "Kelas Tidak Diketahui" to "Gambar tidak dikenali. Silakan coba lagi dengan gambar yang lebih jelas atau ambil dari sudut yang berbeda."
+            0 -> "Daun Sehat" to "Tidak ada tindakan yang diperlukan. Tetap pantau dan rawat tanaman secara rutin."
+            1 -> "Daun Melengkung" to "Penyebab umum adalah kekurangan air atau serangan virus. Lakukan penyiraman yang cukup dan cabut daun yang rusak."
+            2 -> "Daun Berbintik Hitam" to "Semprot dengan fungisida berbahan aktif mancozeb atau tembaga setiap 7–10 hari sekali hingga sembuh."
+            3 -> "Daun Terkena Hama" to "Gunakan insektisida sistemik dan semprotkan secara merata di seluruh bagian tanaman, termasuk bagian bawah daun."
+            4 -> "Daun Menguning Lesu" to "Periksa drainase tanah, hindari overwatering, dan berikan pupuk nitrogen sesuai dosis anjuran."
+            else -> "Kelas Tidak Diketahui" to "Gambar tidak dikenali. Silakan coba lagi dengan gambar yang lebih jelas."
         }
     }
-
 }

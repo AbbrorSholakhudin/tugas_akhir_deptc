@@ -5,28 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="false"
-    android:clipToPadding="false"
-    android:background="@color/white"
     tools:context=".homeActivity">
 
-    <!-- Konten ScrollView -->
     <ScrollView
-        android:id="@+id/scrollContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:background="@color/white"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
+        android:background="@color/white">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="120dp"
             android:background="@color/white">
 
             <!-- HEADER -->
@@ -51,7 +39,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:text="DepTC"
-                    android:fontFamily="@font/acme_regular"
                     android:gravity="center"
                     android:textSize="54sp"
                     android:textColor="@android:color/black"
@@ -68,103 +55,97 @@
 
             <!-- IMAGE PREVIEW -->
             <ImageView
-                android:id="@+id/containerimageView"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:background="#CCCCCC"
-                android:layout_marginTop="16dp" />
+            android:id="@+id/containerimageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:background="#CCCCCC"
+            android:layout_marginTop="16dp" />
 
-            <!-- PILIH GAMBAR -->
+                <!-- PILIH GAMBAR -->
             <Button
-                android:id="@+id/btnSelectImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Pilih Gambar"
-                android:backgroundTint="@color/green"
-                android:textAllCaps="false"
-                android:textColor="@color/white1"
-                android:textSize="20sp"
-                android:layout_marginTop="16dp" />
+            android:id="@+id/btnSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pilih Gambar"
+            android:backgroundTint="@color/green"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp" />
 
-            <!-- AMBIL FOTO -->
+                <!-- AMBIL FOTO -->
             <Button
-                android:id="@+id/btnCamera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Ambil Foto"
-                android:backgroundTint="@color/green"
-                android:textAllCaps="false"
-                android:textColor="@color/white1"
-                android:textSize="20sp"
-                android:layout_marginTop="8dp" />
+            android:id="@+id/btnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ambil Foto"
+            android:backgroundTint="@color/green"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp" />
 
-            <!-- PREDIKSI -->
+                <!-- PREDIKSI -->
             <Button
-                android:id="@+id/btnPredict"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            android:id="@+id/btnPredict"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Prediksi"
+            android:backgroundTint="@color/green"
+            android:textAllCaps="false"
+            android:textColor="@color/white1"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp" />
+            <!-- HASIL PREDIKSI (DETAILED) -->
+            <LinearLayout
+                android:id="@+id/resultContainer"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
                 android:layout_gravity="center"
-                android:text="Prediksi"
-                android:backgroundTint="@color/green"
-                android:textAllCaps="false"
-                android:textColor="@color/white1"
-                android:textSize="20sp"
-                android:layout_marginTop="8dp" />
+                android:layout_marginHorizontal="12dp"
+                android:background="#D0EDCC"
+                android:backgroundTint="#D0EDCC"
+                android:clipToOutline="true"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+                app:layout_constraintStart_toStartOf="parent">
 
+                <TextView
+                    android:id="@+id/textDisease"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Penyakit : -"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textPrevention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Pencegahan : -"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btnCloseResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/green"
+                    android:text="Ok"
+                    android:textColor="@color/white" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <!-- RESULT CONTAINER (diluar ScrollView, untuk animasi slide-up) -->
-    <!-- posisi awal untuk animasi -->
-    <LinearLayout
-        android:id="@+id/resultContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:backgroundTint="#D0EDCC"
-        android:clipToOutline="true"
-        android:visibility="gone"
-        android:layout_margin="16dp"
-        android:elevation="4dp"
-        android:translationY="1000dp"
-    android:background="@color/white"
-    android:gravity="center"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent">
-
-    <TextView
-        android:id="@+id/textDisease"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Penyakit : -"
-        android:textColor="#000000"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textPrevention"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Pencegahan : -"
-        android:textColor="#000000"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/btnCloseResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ok"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/green"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,11 +25,34 @@ class contohgambarActivity : AppCompatActivity() {
         val preventionText = findViewById<TextView>(R.id.textPrevention)
         val btnCloseResult = findViewById<Button>(R.id.btnCloseResult)
 
-        // Fungsi utama saat gambar diclick
-        fun showDiseaseInfo(key: String, checkbox: CheckBox) {
-            val (label, prevention) = penyakitInfo[key] ?: return
-            checkbox.isChecked = true
+        // Gambar + CheckBox
+        val imageHealthy = findViewById<ImageView>(R.id.imageHealthy)
+        val cbHealthy = findViewById<CheckBox>(R.id.checkboxHealthy)
 
+        val imageLeafCurl = findViewById<ImageView>(R.id.imageLeafCurl)
+        val cbLeafCurl = findViewById<CheckBox>(R.id.checkboxLeafCurl)
+
+        val imageLeafSpot = findViewById<ImageView>(R.id.imageLeafSpot)
+        val cbLeafSpot = findViewById<CheckBox>(R.id.checkboxLeafSpot)
+
+        val imageWhitefly = findViewById<ImageView>(R.id.imageWhitefly)
+        val cbWhitefly = findViewById<CheckBox>(R.id.checkboxWhitefly)
+
+        val imageYellowish = findViewById<ImageView>(R.id.imageYellowish)
+        val cbYellowish = findViewById<CheckBox>(R.id.checkboxYellowish)
+
+        val checkboxes = listOf(cbHealthy, cbLeafCurl, cbLeafSpot, cbWhitefly, cbYellowish)
+
+        fun showDiseaseInfo(key: String, selectedCheckBox: CheckBox) {
+            val (label, prevention) = penyakitInfo[key] ?: return
+
+            // Uncheck semua dulu
+            checkboxes.forEach { it.isChecked = false }
+
+            // Check yang dipilih
+            selectedCheckBox.isChecked = true
+
+            // Tampilkan info
             diseaseText.text = "Penyakit : $label"
             preventionText.text = "Pencegahan : $prevention"
 
@@ -38,40 +61,22 @@ class contohgambarActivity : AppCompatActivity() {
             resultContainer.startAnimation(slideUp)
         }
 
-        // Binding semua gambar dan checkbox
-        val imageHealthy = findViewById<ImageView>(R.id.imageHealthy)
-        val checkboxHealthy = findViewById<CheckBox>(R.id.checkboxHealthy)
-
-        val imageLeafCurl = findViewById<ImageView>(R.id.imageLeafCurl)
-        val checkboxLeafCurl = findViewById<CheckBox>(R.id.checkboxLeafCurl)
-
-        val imageLeafSpot = findViewById<ImageView>(R.id.imageLeafSpot)
-        val checkboxLeafSpot = findViewById<CheckBox>(R.id.checkboxLeafSpot)
-
-        val imageWhitefly = findViewById<ImageView>(R.id.imageWhitefly)
-        val checkboxWhitefly = findViewById<CheckBox>(R.id.checkboxWhitefly)
-
-        val imageYellowish = findViewById<ImageView>(R.id.imageYellowish)
-        val checkboxYellowish = findViewById<CheckBox>(R.id.checkboxYellowish)
-
-        // Set onClickListener ke tiap gambar
-        imageHealthy.setOnClickListener { showDiseaseInfo("healthy", checkboxHealthy) }
-        imageLeafCurl.setOnClickListener { showDiseaseInfo("leaf_curl", checkboxLeafCurl) }
-        imageLeafSpot.setOnClickListener { showDiseaseInfo("leaf_spot", checkboxLeafSpot) }
-        imageWhitefly.setOnClickListener { showDiseaseInfo("whitefly", checkboxWhitefly) }
-        imageYellowish.setOnClickListener { showDiseaseInfo("yellowish", checkboxYellowish) }
+        imageHealthy.setOnClickListener { showDiseaseInfo("healthy", cbHealthy) }
+        imageLeafCurl.setOnClickListener { showDiseaseInfo("leaf_curl", cbLeafCurl) }
+        imageLeafSpot.setOnClickListener { showDiseaseInfo("leaf_spot", cbLeafSpot) }
+        imageWhitefly.setOnClickListener { showDiseaseInfo("whitefly", cbWhitefly) }
+        imageYellowish.setOnClickListener { showDiseaseInfo("yellowish", cbYellowish) }
 
         btnCloseResult.setOnClickListener {
             resultContainer.visibility = View.GONE
         }
-        // Aktifkan tombol kembali di ActionBar
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Deteksi Daun"
+        supportActionBar?.title = "Contoh Penyakit"
     }
 
-    // Tangani aksi tombol kembali di atas
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed() // atau finish()
+        onBackPressed()
         return true
     }
 }

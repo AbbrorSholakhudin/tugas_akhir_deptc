@@ -28,6 +28,7 @@
 
         <!-- Home screen -->
         <activity android:name=".homeActivity" />
+        <activity android:name=".TransitDeteksiActivity"/>
         <activity android:name=".deteksiActivity"/>
         <activity android:name=".contohgambarActivity"/>
 

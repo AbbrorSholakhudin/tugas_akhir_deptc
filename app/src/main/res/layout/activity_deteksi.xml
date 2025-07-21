@@ -108,7 +108,7 @@
                 android:layout_height="400dp"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
-                android:background="#D0EDCC"
+                android:background="@drawable/rounded_light_green"
                 android:backgroundTint="#D0EDCC"
                 android:clipToOutline="true"
                 android:orientation="vertical"

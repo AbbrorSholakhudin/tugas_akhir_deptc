@@ -34,7 +34,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/rounded_background"
                     android:elevation="4dp"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -74,7 +74,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/rounded_background"
                     android:elevation="4dp"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -114,7 +114,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/rounded_background"
                     android:elevation="4dp"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -154,7 +154,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/rounded_background"
                     android:elevation="4dp"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -194,7 +194,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/rounded_background"
                     android:elevation="4dp"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -242,7 +242,7 @@
         android:layout_height="500dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="12dp"
-        android:background="#D0EDCC"
+        android:background="@drawable/rounded_light_green"
         android:backgroundTint="#D0EDCC"
         android:clipToOutline="true"
         android:orientation="vertical"

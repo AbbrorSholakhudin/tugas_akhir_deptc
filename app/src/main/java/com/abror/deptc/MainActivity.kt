@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main) // Layout splash screen
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, homeActivity::class.java))
+            startActivity(Intent(this, TransitDeteksiActivity::class.java))
             finish()
         }, 2000) // 2000 ms = 2 detik
     }
